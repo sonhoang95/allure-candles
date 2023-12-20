@@ -1,6 +1,6 @@
 import Navbar from 'components/layout/navbar';
-import { GeistSans } from 'geist/font';
 import { ensureStartsWith } from 'lib/utils';
+import { Montserrat } from 'next/font/google';
 import { ReactNode, Suspense } from 'react';
 import './globals.css';
 
@@ -10,6 +10,11 @@ const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
   : 'http://localhost:3000';
 const twitterCreator = TWITTER_CREATOR ? ensureStartsWith(TWITTER_CREATOR, '@') : undefined;
 const twitterSite = TWITTER_SITE ? ensureStartsWith(TWITTER_SITE, 'https://') : undefined;
+
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  display: 'swap'
+});
 
 export const metadata = {
   metadataBase: new URL(baseUrl),
@@ -33,8 +38,8 @@ export const metadata = {
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={GeistSans.variable}>
-      <body className="bg-neutral-50 text-black selection:bg-teal-300 dark:bg-neutral-900 dark:text-white dark:selection:bg-pink-500 dark:selection:text-white">
+    <html lang="en" className={montserrat.className}>
+      <body className="bg-neutral-50 text-black">
         <Navbar />
         <Suspense>
           <main>{children}</main>
