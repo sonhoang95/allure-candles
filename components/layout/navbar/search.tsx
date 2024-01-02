@@ -9,7 +9,7 @@ import { useState } from 'react';
 const playfair_display = Playfair_Display({ style: 'normal', subsets: ['latin'], weight: '400' });
 
 export default function Search() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -27,27 +27,28 @@ export default function Search() {
     }
 
     router.push(createUrl('/search', newParams));
+    setIsOpen(false);
   }
 
   return (
     <>
       <div
         className={`fixed bottom-0 left-0 right-0 top-0 z-10  bg-black opacity-40 ${
-          isModalOpen ? 'visible' : 'hidden'
+          isOpen ? 'visible' : 'hidden'
         }`}
       ></div>
-      <button className="mr-3 block" onClick={() => setIsModalOpen(true)}>
+      <button className="mr-3 block" onClick={() => setIsOpen(true)}>
         <MagnifyingGlassIcon className="h-6 text-gray-900" />
       </button>
 
       <form
         onSubmit={onSubmit}
         className={`fixed right-0 top-0 z-20 w-full transform bg-white transition-transform duration-200 ease-linear ${
-          isModalOpen ? 'translate-y-0' : '-translate-y-full'
+          isOpen ? 'translate-y-0' : '-translate-y-full'
         }`}
       >
         <div className="container relative mx-auto flex items-center justify-between py-12">
-          <div onClick={() => setIsModalOpen(false)} className="cursor-pointer">
+          <div onClick={() => setIsOpen(false)} className="cursor-pointer">
             <XMarkIcon className="absolute right-0 top-10 h-6 text-gray-400" />
           </div>
           <div className=" w-full border-b border-gray-300 pb-6">

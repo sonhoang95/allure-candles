@@ -5,6 +5,7 @@ import { Menu } from 'lib/shopify/types';
 import { Playfair_Display } from 'next/font/google';
 import Link from 'next/link';
 import { Suspense } from 'react';
+import Dropdown from './dropdown';
 import MobileMenu from './mobile-menu';
 import Search from './search';
 const { SITE_NAME } = process.env;
@@ -15,7 +16,7 @@ export default async function Navbar() {
   const menu = await getMenu('main-menu');
 
   return (
-    <div className="container mx-auto p-4 lg:px-6">
+    <div className="border border-gray-300 bg-white lg:px-6">
       <nav className="flex w-full items-center">
         <div className="block flex-none md:hidden">
           <MobileMenu menu={menu} />
@@ -23,16 +24,25 @@ export default async function Navbar() {
 
         {menu.length ? (
           <ul className="hidden grow basis-0 gap-6 text-sm md:flex md:items-center">
-            {menu.map((item: Menu) => (
-              <li key={item.title}>
-                <Link
-                  href={item.path}
-                  className="text-xs uppercase tracking-wider text-neutral-500 underline-offset-4 hover:text-black hover:underline dark:text-neutral-400 dark:hover:text-neutral-300"
-                >
-                  {item.title}
-                </Link>
-              </li>
-            ))}
+            {menu.map((item: Menu) => {
+              if (item.items.length) {
+                return (
+                  <li key={item.title} className="relative">
+                    <Dropdown item={item} submenus={item.items} />
+                  </li>
+                );
+              }
+              return (
+                <li key={item.title}>
+                  <Link
+                    href={item.path}
+                    className="py-3 text-base font-light tracking-wide text-neutral-500 underline-offset-4 hover:text-neutral-800 hover:underline"
+                  >
+                    {item.title}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         ) : null}
 

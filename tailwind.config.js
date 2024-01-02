@@ -8,6 +8,9 @@ module.exports = {
       fontFamily: {
         sans: ['var(--font-geist-sans)']
       },
+      colors: {
+        primary: '#cfb49a'
+      },
       keyframes: {
         fadeIn: {
           from: { opacity: 0 },
