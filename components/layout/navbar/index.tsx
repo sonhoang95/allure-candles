@@ -10,20 +10,24 @@ import MobileMenu from './mobile-menu';
 import Search from './search';
 const { SITE_NAME } = process.env;
 
-const playfair_display = Playfair_Display({ style: 'normal', subsets: ['latin'], weight: '400' });
+export const playfair_display = Playfair_Display({
+  style: 'normal',
+  subsets: ['latin'],
+  weight: '400'
+});
 
 export default async function Navbar() {
   const menu = await getMenu('main-menu');
 
   return (
-    <div className="border border-gray-300 bg-white lg:px-6">
+    <div className="bg-white lg:px-6">
       <nav className="flex w-full items-center">
         <div className="block flex-none md:hidden">
           <MobileMenu menu={menu} />
         </div>
 
         {menu.length ? (
-          <ul className="hidden grow basis-0 gap-6 text-sm md:flex md:items-center">
+          <ul className="hidden grow basis-0 text-sm md:flex md:items-center">
             {menu.map((item: Menu) => {
               if (item.items.length) {
                 return (
@@ -34,10 +38,7 @@ export default async function Navbar() {
               }
               return (
                 <li key={item.title}>
-                  <Link
-                    href={item.path}
-                    className="py-3 text-base font-light tracking-wide text-neutral-500 underline-offset-4 hover:text-neutral-800 hover:underline"
-                  >
+                  <Link href={item.path} className="nav-link relative inline-block p-6">
                     {item.title}
                   </Link>
                 </li>
