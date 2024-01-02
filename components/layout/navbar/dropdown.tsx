@@ -36,7 +36,10 @@ const Dropdown = ({ item, submenus }: Props) => {
       >
         <ul className="relative mx-auto my-0 list-none border-t border-gray-300 p-8">
           {submenus.map((submenu, index) => (
-            <li key={index} className="px-2 py-3">
+            <li
+              key={index}
+              className="hover:text-primary px-2 py-3 text-base font-light tracking-wide text-gray-500 transition-colors duration-150 ease-linear"
+            >
               <Link href={submenu.url}>{submenu.title}</Link>
             </li>
           ))}

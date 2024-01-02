@@ -1,5 +1,7 @@
+import AboutSection from 'components/about';
 import FullBackgroundHero from 'components/full-background-hero';
 import Footer from 'components/layout/footer';
+import SuperHero from 'components/super-hero';
 import { Suspense } from 'react';
 
 export const runtime = 'edge';
@@ -15,6 +17,10 @@ export default async function HomePage() {
   return (
     <>
       <FullBackgroundHero />
+      <AboutSection />
+      <Suspense>
+        <SuperHero />
+      </Suspense>
       {/* <ThreeItemGrid /> */}
       <Suspense>
         {/* <Carousel /> */}
