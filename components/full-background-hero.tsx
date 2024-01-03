@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import CTAButton from './cta-button';
 import { playfair_display } from './layout/navbar';
 
 const backgroundImageStyles = clsx(
@@ -18,9 +19,7 @@ const FullBackgroundHero = () => {
             Create your own personalised scent
           </h2>
           <p className="tracking-wider">Your memories. Your candle. Your unique custom blend.</p>
-          <button className="bg-primary px-6 py-3 uppercase tracking-widest text-white">
-            Discover How
-          </button>
+          <CTAButton variant="dark">Discover How</CTAButton>
         </div>
       </div>
     </section>

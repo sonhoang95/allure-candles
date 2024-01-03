@@ -12,4 +12,16 @@
   .nav-link {
     @apply hover:text-primary after:bg-primary text-base font-light text-neutral-500 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:transform after:transition-all after:duration-150 after:ease-linear after:content-[""] hover:after:origin-bottom-left hover:after:scale-x-100;
   }
+
+  .cta-button {
+    @apply mt-16  px-6 py-3 uppercase tracking-widest  transition-colors duration-200 ease-linear;
+  }
+
+  .light {
+    @apply bg-neutral-50 text-gray-700 hover:bg-neutral-200;
+  }
+
+  .dark {
+    @apply bg-primary text-neutral-50 hover:bg-[#d1ab86];
+  }
 }

@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import CTAButton from './cta-button';
 import { playfair_display } from './layout/navbar';
 
 const SuperHero = () => {
@@ -22,9 +23,7 @@ const SuperHero = () => {
             SOMETHING SMELLS GOOD…
           </h2>
           <p className="tracking-wider">hand poured with love just for you</p>
-          <button className="mt-16 bg-neutral-50 px-6 py-3 uppercase tracking-widest text-gray-700">
-            Shop now
-          </button>
+          <CTAButton variant="light">Shop Now</CTAButton>
         </div>
       </div>
     </section>

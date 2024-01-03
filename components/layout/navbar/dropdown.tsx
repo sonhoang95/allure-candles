@@ -6,6 +6,7 @@ import { useState } from 'react';
 interface Props {
   item: {
     title: string;
+    url: string;
   };
   submenus: {
     title: string;
@@ -13,12 +14,15 @@ interface Props {
   }[];
 }
 
+const domain = 'https://4215b7-3.myshopify.com';
+
 const Dropdown = ({ item, submenus }: Props) => {
   const [dropdown, setDropdown] = useState(false);
+
   return (
     <>
       <Link
-        href={'/about'}
+        href={'/'}
         aria-haspopup="menu"
         aria-expanded={dropdown ? 'true' : 'false'}
         onMouseEnter={() => setDropdown(true)}
@@ -35,14 +39,18 @@ const Dropdown = ({ item, submenus }: Props) => {
         }`}
       >
         <ul className="relative mx-auto my-0 list-none border-t border-gray-300 p-8">
-          {submenus.map((submenu, index) => (
-            <li
-              key={index}
-              className="hover:text-primary px-2 py-3 text-base font-light tracking-wide text-gray-500 transition-colors duration-150 ease-linear"
-            >
-              <Link href={submenu.url}>{submenu.title}</Link>
-            </li>
-          ))}
+          {submenus.map((submenu, index) => {
+            const path = submenu.url.replace(domain, '').replace('/pages', '');
+            console.log(path);
+            return (
+              <li
+                key={index}
+                className="hover:text-primary px-2 py-3 text-base font-light tracking-wide text-gray-500 transition-colors duration-150 ease-linear"
+              >
+                <Link href={path}>{submenu.title}</Link>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </>
