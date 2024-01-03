@@ -6,7 +6,7 @@ import { useState } from 'react';
 interface Props {
   item: {
     title: string;
-    url: string;
+    path: string;
   };
   submenus: {
     title: string;
