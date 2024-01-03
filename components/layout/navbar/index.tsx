@@ -21,8 +21,8 @@ export default async function Navbar() {
 
   return (
     <div className="bg-white lg:px-6">
-      <nav className="flex w-full items-center">
-        <div className="block flex-none md:hidden">
+      <nav className="flex w-full items-center justify-between md:justify-normal">
+        <div className="block flex-none py-4 md:hidden">
           <MobileMenu menu={menu} />
         </div>
 
@@ -50,13 +50,13 @@ export default async function Navbar() {
         <Link href="/" className="md:w-auto lg:mr-6">
           {/* <LogoSquare /> */}
           <div
-            className={`text-lg font-medium uppercase md:hidden lg:block ${playfair_display.className}`}
+            className={`text-xl font-medium uppercase md:hidden md:text-2xl lg:block ${playfair_display.className}`}
           >
             {SITE_NAME}
           </div>
         </Link>
 
-        <div className="flex grow basis-0 items-center justify-end">
+        <div className="flex items-center md:grow md:basis-0 md:justify-end">
           <div className="hidden md:block">
             <Search />
           </div>

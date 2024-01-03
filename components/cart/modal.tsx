@@ -70,7 +70,7 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
             leaveFrom="translate-x-0"
             leaveTo="translate-x-full"
           >
-            <Dialog.Panel className="fixed bottom-0 right-0 top-0 z-50 p-3 text-neutral-600 md:w-[364px]">
+            <Dialog.Panel className="fixed bottom-0 right-0 top-0 z-50 w-full p-2 text-neutral-600 md:w-[364px]">
               <div className="flex h-full w-full flex-col rounded-2xl bg-white">
                 <div className="bg-primary flex items-center justify-between rounded-t-2xl">
                   <div className="invisible">1234</div>
@@ -84,6 +84,12 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
                   <div className="mt-20 flex w-full flex-col items-center justify-center overflow-hidden">
                     <ShoppingCartIcon className="h-16" />
                     <p className="mt-6 text-center text-2xl">Your cart is empty.</p>
+                    <Link
+                      href="/products"
+                      className="text-primary mt-2 text-sm font-bold underline"
+                    >
+                      Continue Shopping
+                    </Link>
                   </div>
                 ) : (
                   <div className="flex h-full flex-col justify-between overflow-hidden p-1">

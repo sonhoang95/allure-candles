@@ -41,7 +41,7 @@ const Dropdown = ({ item, submenus }: Props) => {
         <ul className="relative mx-auto my-0 list-none border-t border-gray-300 p-8">
           {submenus.map((submenu, index) => {
             const path = submenu.url.replace(domain, '').replace('/pages', '');
-            console.log(path);
+
             return (
               <li
                 key={index}
