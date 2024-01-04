@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import CTAButton from './cta-button';
-import { playfair_display } from './layout/navbar';
+import SectionHeading from './section-heading';
 
 const SuperHero = () => {
   return (
@@ -19,11 +19,7 @@ const SuperHero = () => {
           <h1 className="text-base font-light uppercase tracking-widest md:text-xl ">
             100% SOY CANDLES
           </h1>
-          <h2
-            className={`${playfair_display.className} my-2 flex-wrap text-4xl leading-normal tracking-wide md:my-6 md:text-5xl`}
-          >
-            SOMETHING SMELLS GOOD…
-          </h2>
+          <SectionHeading paddingClass="py-10">SOMETHING SMELLS GOOD…</SectionHeading>
           <p className="tracking-wider">hand poured with love just for you</p>
           <CTAButton variant="light">Shop Now</CTAButton>
         </div>

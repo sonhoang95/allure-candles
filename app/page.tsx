@@ -1,5 +1,6 @@
 import AboutSection from 'components/about';
 import FullBackgroundHero from 'components/full-background-hero';
+import { ThreeItemGrid } from 'components/grid/three-items';
 import Footer from 'components/layout/footer';
 import SuperHero from 'components/super-hero';
 import { Suspense } from 'react';
@@ -21,7 +22,7 @@ export default async function HomePage() {
       <Suspense>
         <SuperHero />
       </Suspense>
-      {/* <ThreeItemGrid /> */}
+      <ThreeItemGrid />
       <Suspense>
         {/* <Carousel /> */}
         <Suspense>

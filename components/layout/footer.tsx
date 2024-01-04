@@ -16,24 +16,33 @@ export default async function Footer() {
 
   return (
     <footer className="bg-[#f2eee9] py-32 text-gray-800">
-      <div className="mx-auto w-[1280px]">
-        <div className="flex gap-6">
+      <div className="mx-auto md:w-[1280px]">
+        <div className="flex flex-col gap-6 px-4 md:flex-row lg:px-0">
           <div
-            className={`flex-1 text-xl font-medium uppercase md:hidden md:text-3xl lg:block ${playfair_display.className}`}
+            className={`font-medium uppercase md:hidden md:flex-1 lg:block ${playfair_display.className}`}
           >
-            <Link className="flex items-center gap-2 text-gray-800 md:pt-1" href="/">
+            <Link
+              className="flex items-center gap-2 text-2xl text-gray-800 md:pt-1 md:text-3xl"
+              href="/"
+            >
               <span className="uppercase">{SITE_NAME}</span>
             </Link>
           </div>
-          <div className="flex-1 space-y-3">
-            <h2 className={`${playfair_display.className} mb-10 text-2xl capitalize tracking-wide`}>
+          <div className="md:flex-1">
+            <h2
+              className={`${playfair_display.className} mb-10 text-xl font-light capitalize tracking-wide`}
+            >
               Contact Us
             </h2>
-            <p>By Appointment Only 24/10-12 Girawah Place, Matraville, Sydney, 2036</p>
+            <p className="my-6">
+              By Appointment Only 24/10-12 Girawah Place, Matraville, Sydney, 2036
+            </p>
             <p>E-mail: hello@sentstudio.co</p>
           </div>
-          <div className="flex-1 space-y-3">
-            <h2 className={`${playfair_display.className} mb-10 text-2xl capitalize tracking-wide`}>
+          <div className="space-y-3 md:flex-1">
+            <h2
+              className={`${playfair_display.className} mb-10 text-xl font-light capitalize tracking-wide`}
+            >
               Looking for something?
             </h2>
             <Suspense
@@ -51,8 +60,10 @@ export default async function Footer() {
               <FooterMenu menu={menu} />
             </Suspense>
           </div>
-          <div className="flex-1 space-y-3">
-            <h2 className={`${playfair_display.className} mb-10 text-2xl capitalize tracking-wide`}>
+          <div className="space-y-3 md:flex-1">
+            <h2
+              className={`${playfair_display.className} mb-10 text-xl font-light capitalize tracking-wide`}
+            >
               Join the family!
             </h2>
             <p>

@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import CTAButton from './cta-button';
-import { playfair_display } from './layout/navbar';
+import SectionHeading from './section-heading';
 
 const backgroundImageStyles = clsx(
   `h-fit bg-[url('/images/full-hero-image.jpg')] bg-cover bg-center py-52 md:py-72  before:absolute before:inset-0 before:z-10 before:bg-black before:opacity-40 before:content-['']`
@@ -15,9 +15,8 @@ const FullBackgroundHero = () => {
           <h1 className="text-base font-light uppercase tracking-widest md:text-xl">
             Welcome to the candle bar
           </h1>
-          <h2 className={`${playfair_display.className} text-4xl tracking-wider md:text-5xl`}>
-            Create your own personalised scent
-          </h2>
+          <SectionHeading>Create your own personalised scent</SectionHeading>
+
           <p className="tracking-wider">Your memories. Your candle. Your unique custom blend.</p>
           <CTAButton variant="dark">Discover How</CTAButton>
         </div>
