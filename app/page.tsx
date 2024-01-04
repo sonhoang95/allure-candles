@@ -1,6 +1,6 @@
 import AboutSection from 'components/about';
 import FullBackgroundHero from 'components/full-background-hero';
-import { ThreeItemGrid } from 'components/grid/three-items';
+import { FourItemsGrid } from 'components/grid/four-items';
 import Footer from 'components/layout/footer';
 import SuperHero from 'components/super-hero';
 import { Suspense } from 'react';
@@ -22,7 +22,7 @@ export default async function HomePage() {
       <Suspense>
         <SuperHero />
       </Suspense>
-      <ThreeItemGrid />
+      <FourItemsGrid />
       <Suspense>
         {/* <Carousel /> */}
         <Suspense>

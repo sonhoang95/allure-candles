@@ -1,6 +1,6 @@
 import clsx from 'clsx';
+import Price from 'components/price';
 import Image from 'next/image';
-import Label from '../label';
 
 export function GridTileImage({
   isInteractive = true,
@@ -20,7 +20,7 @@ export function GridTileImage({
   return (
     <div
       className={clsx(
-        'group flex h-full w-full flex-col items-center justify-center gap-6 overflow-hidden bg-white',
+        'group flex h-full w-full flex-col items-center justify-center gap-6 overflow-hidden bg-white font-light',
         {
           relative: label,
           'border-2 border-blue-600': active,
@@ -39,14 +39,15 @@ export function GridTileImage({
           />
         ) : null}
       </div>
-      {label ? (
-        <Label
-          title={label.title}
-          amount={label.amount}
-          currencyCode={label.currencyCode}
-          position={label.position}
+      <div>
+        <h3>{label?.title}</h3>
+        <Price
+          className="p-2 text-gray-800"
+          amount={label?.amount || '0'}
+          currencyCode={label?.currencyCode || '$'}
+          currencyCodeClassName="hidden @[275px]/label:inline"
         />
-      ) : null}
+      </div>
     </div>
   );
 }

@@ -4,30 +4,18 @@ import { getCollectionProducts } from 'lib/shopify';
 import type { Product } from 'lib/shopify/types';
 import Link from 'next/link';
 
-function ThreeItemGridItem({
-  item,
-  size,
-  priority
-}: {
-  item: Product;
-  size: 'full' | 'half';
-  priority?: boolean;
-}) {
+function FourItemGridItem({ item, priority }: { item: Product; priority?: boolean }) {
   return (
-    <div
-      className={size === 'full' ? 'md:col-span-4 md:row-span-2' : 'md:col-span-1 md:row-span-1'}
-    >
+    <div className="md:col-span-1 md:row-span-1">
       <Link className="relative block aspect-[4/5] h-full w-full" href={`/product/${item.handle}`}>
         <GridTileImage
           src={item.featuredImage.url}
           fill
-          sizes={
-            size === 'full' ? '(min-width: 768px) 66vw, 100vw' : '(min-width: 768px) 33vw, 100vw'
-          }
+          sizes={'(min-width: 768px) 33vw, 100vw'}
           priority={priority}
           alt={item.title}
           label={{
-            position: size === 'full' ? 'center' : 'bottom',
+            position: 'bottom',
             title: item.title as string,
             amount: item.priceRange.maxVariantPrice.amount,
             currencyCode: item.priceRange.maxVariantPrice.currencyCode
@@ -38,15 +26,15 @@ function ThreeItemGridItem({
   );
 }
 
-export async function ThreeItemGrid() {
+export async function FourItemsGrid() {
   // Collections that start with `hidden-*` are hidden from the search page.
   const homepageItems = await getCollectionProducts({
     collection: 'hidden-homepage-featured-items'
   });
 
-  if (!homepageItems[0] || !homepageItems[1] || !homepageItems[2]) return null;
+  if (!homepageItems[0] || !homepageItems[1] || !homepageItems[2] || !homepageItems[3]) return null;
 
-  const [firstProduct, secondProduct, thirdProduct] = homepageItems;
+  const [firstProduct, secondProduct, thirdProduct, fourthProduct] = homepageItems;
 
   return (
     <section className="mx-auto max-w-screen-2xl space-y-6 bg-white px-4 py-16 pb-4 text-center text-gray-800 lg:py-32">
@@ -56,15 +44,11 @@ export async function ThreeItemGrid() {
           See all products
         </Link>
       </div>
-      <div className=" grid  gap-6 md:grid-cols-4 md:grid-rows-2">
-        <ThreeItemGridItem size="half" item={firstProduct} priority={true} />
-        <ThreeItemGridItem size="half" item={secondProduct} priority={true} />
-        <ThreeItemGridItem size="half" item={thirdProduct} />
-        <ThreeItemGridItem size="half" item={thirdProduct} />
-        <ThreeItemGridItem size="half" item={thirdProduct} />
-        <ThreeItemGridItem size="half" item={thirdProduct} />
-        <ThreeItemGridItem size="half" item={thirdProduct} />
-        <ThreeItemGridItem size="half" item={thirdProduct} />
+      <div className=" grid  gap-6 md:grid-cols-4 md:grid-rows-1">
+        <FourItemGridItem item={firstProduct} priority={true} />
+        <FourItemGridItem item={secondProduct} priority={true} />
+        <FourItemGridItem item={thirdProduct} priority={true} />
+        <FourItemGridItem item={fourthProduct} />
       </div>
     </section>
   );
